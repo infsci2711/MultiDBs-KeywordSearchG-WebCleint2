@@ -1,4 +1,4 @@
-var restBaseUrl = "http://localhost:7645/";
+var restBaseUrl = "http://localhost:7648/";
 
 function DisplayData(id,databasename,tablename,columnname,data,url){
 	var self = this;
@@ -12,32 +12,35 @@ function DisplayData(id,databasename,tablename,columnname,data,url){
 
 function Display(){
 	var self = this;
+	
+	
 
 	self.tuples = ko.observableArray();
 
 	self.keywords = ko.observable();
+
 	
+
 	self.search = function(){
-		
+		var output="";
 		$.ajax({
-			url: restBaseUrl + "Demo1/helloWorld/" + self.keywords(),
+			url: restBaseUrl + "NeoSearch/" + self.keywords(),
 			type: 'GET',
 			dataType: 'json',
 			contentType: "application/json",
 			crossDomain: true,
 			success: function(data){	
-debugger;
 
-				self.tuples.removeAll();
-
-				for (var i = 0; i < data.length; i++) {
-					//need to clear the data before retrieve data again.
-					//append to the right colunm in the tables
-					var onetuple = new DisplayData(data[i].id, data[i].databasename, 
-						data[i].tablename, data[i].columnname, data[i].data, data[i].url);
-
-					self.tuples.push(onetuple);
+			for (var i = 0; i < data.length; i++) {
+				var e = data[i].row;
+				for (var k = 0; k<e.length; k++){
+					output +="<br/>";
+					for (var j in e[k]){
+						output += "<div class=\"table\">"+ j+":"+ e[k][j]+"</div>"
+						}
 				}
+			}
+				document.getElementById("output_field").innerHTML = output;
 			},
 			error: function(data) {
 				alert("Something went wrong while getting message. Please try again.");
@@ -46,4 +49,4 @@ debugger;
 	};
 }
 
-ko.applyBindings(new Display(), $("#searchResultContainer")[0]);
+ko.applyBindings(new Display(), $("#NeoContainer")[0]);

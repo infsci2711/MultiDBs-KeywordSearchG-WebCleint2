@@ -13,39 +13,31 @@
 		<div class="col-md-12">
 
 			<div class="page-header">
-			  <h1>This is INFSCI 2711 Neo4j Graph search with RESTful API <br/><small>(with twitter bootstrap and knockouy.js)</small></h1>
+			  <h1 align="center">Start your search with Neo4j! Coooool~</small></h1>
 			</div>
 
-			<div id="searchResultContainer">
-				<input class="form-control" placeholder="Enter keyword for search" data-bind="textInput: keywords" id="keywords" width:100px >
-				
-				<button class="btn btn-default" data-bind="click: search">Search</button>
+			<div id="NeoContainer">
+					
+					<input class="form-control" placeholder="Enter keyword for search" id="keywords" data-bind="textInput: keywords" width:100px>
 
-				<!-- ko if: tuples().length > 0 -->
-
-				<h3>
-		        There are <span data-bind="text: tuples().length"></span> records matching your search in our databases.
-		    	</h3> 
+					<button onclick="Display()" class="btn btn-default" data-bind="click: search" >Cool!</button>
 
 		    	<table class="table table-striped table-hover">
 		            <thead>
 		                <tr>  
 		                	<th>#</th>
-		                    <th>Database Name</th>
-		                    <th>Table Name</th>  
-		                    <th>Column Name</th> 
-		                    <th>Data</th> 
-		                    <th>Url</th>                       
+		                    <th>Databasename</th>
+		                    <th>Tablename</th>  
+		                    <th>Schemaname</th> 
+		                    <th>Data</th>                       
 		                </tr> 
 		            </thead> 
-		            <tbody data-bind="foreach: tuples">
+		            <!--tbody data-bind="foreach: message">
 		                <tr>  
-		                    <td data-bind="text: id"></td>
-		                    <td data-bind="text: databasename"></td>
-		                    <td data-bind="text: tablename"></td>		                    
-		                    <td data-bind="text: columnname"></td>
-		                    <td data-bind="text: data"></td>
-		                    <td data-bind="text: url"></td>
+		                	<td data-bind="text: $index"></td> 
+		                    <td data-bind="text: firstName"></td>  
+		                    <td data-bind="text: lastName"></td>
+		                    
 		                </tr>     
 		            </tbody>
 		        </table>  
@@ -53,12 +45,14 @@
 		        <!-- /ko -->
 
 			</div>
-
+			<div id = "output_field">aa</div>
 		</div>
+	
+	</div>
 	
     <script type="text/javascript" src="javascripts/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="javascripts/knockout-3.2.0.js"></script>
-    <script type="text/javascript" src="javascripts/knockout_models/SearchResultDisplay.js"></script>
+    <script type="text/javascript" src="javascripts/knockout_models/message.js"></script>
 </body>
 </html>
