@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>INFSCI 2711 Web Tutorial</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<body style="margin: 60px;">
+	<div class="row">
+
+		<div class="col-md-12">
+
+			<div class="page-header">
+			  <h1>This is INFSCI 2711 Neo4j Graph search with RESTful API <br/><small>(with twitter bootstrap and knockouy.js)</small></h1>
+			</div>
+
+			<div id="searchResultContainer">
+				<input class="form-control" placeholder="Enter keyword for search" data-bind="textInput: keywords" id="keywords" width:100px >
+				
+				<button class="btn btn-default" data-bind="click: search">Search</button>
+
+				<!-- ko if: tuples().length > 0 -->
+
+				<h3>
+		        There are <span data-bind="text: tuples().length"></span> records matching your search in our databases.
+		    	</h3> 
+
+		    	<table class="table table-striped table-hover">
+		            <thead>
+		                <tr>  
+		                	<th>#</th>
+		                    <th>Database Name</th>
+		                    <th>Table Name</th>  
+		                    <th>Column Name</th> 
+		                    <th>Data</th> 
+		                    <th>Url</th>                       
+		                </tr> 
+		            </thead> 
+		            <tbody data-bind="foreach: tuples">
+		                <tr>  
+		                    <td data-bind="text: id"></td>
+		                    <td data-bind="text: databasename"></td>
+		                    <td data-bind="text: tablename"></td>		                    
+		                    <td data-bind="text: columnname"></td>
+		                    <td data-bind="text: data"></td>
+		                    <td data-bind="text: url"></td>
+		                </tr>     
+		            </tbody>
+		        </table>  
+
+		        <!-- /ko -->
+
+			</div>
+
+		</div>
+	
+    <script type="text/javascript" src="javascripts/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="javascripts/knockout-3.2.0.js"></script>
+    <script type="text/javascript" src="javascripts/knockout_models/SearchResultDisplay.js"></script>
+</body>
+</html>
