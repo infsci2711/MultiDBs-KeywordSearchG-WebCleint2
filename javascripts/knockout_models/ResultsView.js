@@ -29,7 +29,9 @@ function Display(){
 			contentType: "application/json",
 			crossDomain: true,
 			success: function(data){
-			//var output="";	
+
+			self.tuples.removeAll();
+				
 				for (var i = 0; i < data.length; i++) {
 					var e = data[i].row;
 					for (var k = 0; k<e.length; k++){

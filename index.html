@@ -21,7 +21,12 @@
 					<input class="form-control" placeholder="Enter keyword for search" id="keywords" data-bind="textInput: keywords" width:100px>
 
 					<button onclick="Display()" class="btn btn-default" data-bind="click: search" >Cool!</button>
+					
+				<!-- ko if: tuples().length > 0 -->
 
+				<h3>
+		        There are <span data-bind="text: tuples().length"></span> records matching your search in our databases.
+		    	</h3> 
 		    	<table class="table table-striped table-hover">
 		            <thead>
 		                <tr>  
