@@ -1,4 +1,4 @@
-var restBaseUrl = "http://localhost:7648/";
+var restBaseUrl = "http://52.0.74.69:7654/";
 //http://localhost:7648/Demo1/helloWorld/
 
 function DisplayData(name,data){
@@ -30,6 +30,8 @@ function Display(){
 			contentType: "application/json",
 			crossDomain: true,
 			success: function(data){
+
+				self.tuples.removeAll();
 			
 					for (var k = 0; k<data.length; k++){
 						for (var j in data[k]){
