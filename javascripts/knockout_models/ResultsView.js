@@ -1,4 +1,5 @@
 var restBaseUrl = "http://localhost:7648/";
+//http://localhost:7648/Demo1/helloWorld/
 
 function DisplayData(name,data){
 	var self = this;
@@ -7,8 +8,8 @@ function DisplayData(name,data){
 }
 function Line(){
 	var self = this;
-	self.name = ko.observable("");
-	self.data = ko.observable("");
+	self.name = ko.observable("    ");
+	self.data = ko.observable("    ");
 }
 
 function Display(){
@@ -23,26 +24,23 @@ function Display(){
 	self.search = function(){
 		
 		$.ajax({
-			url: restBaseUrl + "NeoSearch/" + self.keywords(),
+			url: restBaseUrl + "Demo1/helloWorld/" + self.keywords(),
 			type: 'GET',
 			dataType: 'json',
 			contentType: "application/json",
 			crossDomain: true,
 			success: function(data){
-
-			self.tuples.removeAll();
-				
-				for (var i = 0; i < data.length; i++) {
-					var e = data[i].row;
-					for (var k = 0; k<e.length; k++){
-						for (var j in e[k]){
-							var onetuple = new DisplayData(j,e[k][j]);
+			
+					for (var k = 0; k<data.length; k++){
+						for (var j in data[k]){
+							var onetuple = new DisplayData(j,data[k][j]);
 							self.tuples.push(onetuple);
 							}
 					var oneline = new Line();
 					self.tuples.push(oneline);
+					self.tuples.push(oneline);
 					}				
-				}
+				
 			},
 			error: function(data) {
 				alert("Something went wrong while getting message. Please try again.");
