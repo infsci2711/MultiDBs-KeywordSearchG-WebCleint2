@@ -1,5 +1,5 @@
-var restBaseUrl = "http://52.0.74.69:7654/";
-//http://localhost:7648/Demo1/helloWorld/
+var restBaseUrl = "http://localhost:7654/";
+//http://localhost:7648/Demo1/helloWorld/52.0.74.69
 
 function DisplayData(name,data){
 	var self = this;
@@ -24,7 +24,7 @@ function Display(){
 	self.search = function(){
 		
 		$.ajax({
-			url: restBaseUrl + "Demo1/helloWorld/" + self.keywords(),
+			url: restBaseUrl + "NeoSearch/" + self.keywords(),
 			type: 'GET',
 			dataType: 'json',
 			contentType: "application/json",
