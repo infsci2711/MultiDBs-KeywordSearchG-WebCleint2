@@ -30,7 +30,7 @@ function Display(){
 			contentType: "application/json",
 			crossDomain: true,
 			success: function(data){
-			
+			self.tuples.removeAll();
 					for (var k = 0; k<data.length; k++){
 						for (var j in data[k]){
 							var onetuple = new DisplayData(j,data[k][j]);
