@@ -22,7 +22,7 @@ function Display(){
 	
 
 	self.search = function(){
-		
+		self.tuples.removeAll();
 		$.ajax({
 			url: restBaseUrl + "NeoSearch/" + self.keywords(),
 			type: 'GET',
@@ -48,7 +48,7 @@ function Display(){
 				alert("Something went wrong while getting message. Please try again.");
 			}
 		});
-	};
+	}; 
 }
-
+//nohup java -jar multidbskeywordsearchgserverapi-0.1-SNAPSHOT.jar > log.out 2> error.log < /dev/null &
 ko.applyBindings(new Display(), $("#NeoContainer")[0]);
