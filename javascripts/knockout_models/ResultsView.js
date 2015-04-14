@@ -14,7 +14,7 @@ function Line(){
 function DisplayJson(){
 	
 	var p = document.getElementById("keywords").innerHTML;
-	window.locatinon.href="http://52.0.74.69/NeoSearch/"+ p ;
+	window.location.href="http://52.0.74.69/NeoSearch/"+ p ;
 }
 
 
