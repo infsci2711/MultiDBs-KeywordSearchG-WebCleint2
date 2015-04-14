@@ -12,9 +12,9 @@ function Line(){
 	self.data = ko.observable("    ");
 }
 function DisplayJson(){
-	var a = document.getElementById("DisplayJ");
-	var p = document.getElementById("keywords").value;
-	a.href="http://52.0.74.69/NeoSearch/"+p;
+	
+	var p = document.getElementById("keywords").innerHTML;
+	window.locatinon.href="http://52.0.74.69/NeoSearch/"+ p ;
 }
 
 
