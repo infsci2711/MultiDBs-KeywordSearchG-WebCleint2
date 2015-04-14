@@ -11,6 +11,12 @@ function Line(){
 	self.name = ko.observable("    ");
 	self.data = ko.observable("    ");
 }
+function DisplayJson(){
+	var a = document.getElementById("DisplayJ");
+	var p = document.getElementById("keywords").value;
+	a.href="http://52.0.74.69/NeoSearch/"+p;
+}
+
 
 function Display(){
 	var self = this;
