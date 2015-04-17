@@ -51,7 +51,7 @@ function Display(){
 				
 			},
 			error: function(data) {
-				alert("Something went wrong while getting message. Please try again.");
+				alert("No result match your searching, please try again!");
 			}
 		});
 	}; 
