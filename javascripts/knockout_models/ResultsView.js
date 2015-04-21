@@ -1,5 +1,4 @@
 var restBaseUrl = "http://52.0.74.69:7654/";
-//http://localhost:7648/Demo1/helloWorld/52.0.74.69
 
 function DisplayData(name,data){
 	var self = this;
@@ -14,10 +13,10 @@ function Line(){
 function DisplayJson(){
 	
 	var p = document.getElementById("keywords").value;
-	window.location.href="http://52.0.74.69:7654/NeoSearch/"+ p ;
+	window.location.href= restBaseUrl + "NeoSearch/"+ p ;
 }
-
-
+//[{"name":"James","age":"13","id":""1001","gpa":"3.75""}]
+//[{"course":"MapReduce","Grade":"3"},{"course":"MapReduce","Grade":"3"}]
 function Display(){
 	var self = this;
 	
@@ -28,9 +27,10 @@ function Display(){
 	
 
 	self.search = function(){
+		var pr = document.getElementById("keywords").value;
 		self.tuples.removeAll();
 		$.ajax({
-			url: restBaseUrl + "NeoSearch/" + self.keywords(),
+			url: restBaseUrl + "NeoSearch/" + pr,
 			type: 'GET',
 			dataType: 'json',
 			contentType: "application/json",
@@ -49,10 +49,10 @@ function Display(){
 					self.tuples.push(oneline);
 					}				
 				
-			},
-			error: function(data) {
+			}//,
+			/*error: function(data) {
 				alert("No result match your searching, please try again!");
-			}
+			}*/
 		});
 	}; 
 }
