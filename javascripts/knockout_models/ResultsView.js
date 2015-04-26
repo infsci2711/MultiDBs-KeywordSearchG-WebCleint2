@@ -1,4 +1,4 @@
-var restBaseUrl = "http://52.0.74.69:7654/";
+var restBaseUrl = "http://colfusion.exp.sis.pitt.edu/keywordsearchg2rest/";//"http://52.0.74.69:7654/";
 
 function DisplayData(name,data){
 	var self = this;
@@ -47,14 +47,14 @@ function Display(){
 					var oneline = new Line();
 					self.tuples.push(oneline);
 					self.tuples.push(oneline);
-					}				
+					}
 				
 			}//,
 			/*error: function(data) {
 				alert("No result match your searching, please try again!");
 			}*/
 		});
-	}; 
+	};
 }
 //nohup java -jar multidbskeywordsearchgserverapi-0.1-SNAPSHOT.jar > log.out 2> error.log < /dev/null &
 ko.applyBindings(new Display(), $("#NeoContainer")[0]);
